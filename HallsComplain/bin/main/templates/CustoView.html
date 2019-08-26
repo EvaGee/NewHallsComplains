@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Custo Welcome</title>
+</head>
+<body>
+<h1> Here are the Halls Complains</h1>
+<table cellspacing="10">
+<tr>
+<th>NAME</th>
+<th>REGNO</th>
+<th>HOSTEL</th>
+<th>BLOCK</th>
+<th>ROOM</th>
+<th>COMPLAIN</th>
+</tr>
+<tr th:each="custo:${myList}">
+<td th:text="${custo.name}"></td>
+<td th:text="${custo.regno}"></td>
+<td th:text="${custo.hostel}"></td>
+<td th:text="${custo.block}"></td>
+<td th:text="${custo.room}"></td>
+<td th:text="${custo.comment}"></td>
+</tr>
+</table>
+</body>
+</html>

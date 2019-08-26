@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="EvaGee">
+
+    <title>Welcome</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/add.css" rel="stylesheet">
+
+    <!-- Javascript-->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src= "js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script>
+    
+    </script>
+    
+    <script> 
+function VALIDATE()                                    
+{ 
+    var comment = document.forms["CommentForm"]["comment"];  
+    
+    if (comment.value == "")                           
+    { 
+        window.alert("Please enter your complain"); 
+        comment.focus(); 
+        return false; 
+    }else
+    	{window.alert("Complain sent"); }
+       
+    return true; 
+}
+</script> 
+
+    <style type="text/css">
+    img{
+	width:250px;
+	height:250px;
+	-webkit-transition:width 2s,height 2s -webkit-transform 2s;
+	transition:width 2s,height 2s,transform 2s;
+	opacity:1;
+	filter:alpha(opacity=60);
+}
+
+img:hover 
+{	width:300px;
+	height:300px;
+	opacity=1;
+	filter:alpha(opacity=100);
+}
+    </style>
+
+</head>
+
+<body class="bg-info">
+
+<div class="row" style="margin-right:-100px">
+        
+            <h1 style="text-size: 200%; text-align: center;
+            font-family:aladin;margin-right:100px" 
+            class="well well-md"> <b> Halls</b></h1>
+            <h2 style="text-align: center">Welcome</h2>
+            <h3 th:text="${details.name}"  style="text-size: 200%; 
+            text-align: center;font-family:aladin;margin-right:100px" 
+            class="well well-md"> 
+          
+            </h3>
+
+        </div>
+<div class="row">
+	<div class="col-sm-4">
+<img class="img-rounded"src="buru.jpg"title="Buruburu hostels-Kajiado"height="500px"width="500px">
+	</div>
+	<div class="col-sm-4">
+<img class="img-circle"src="buru1.jpg"title="Buruburu Hostels-Machakos"height="500px"width="500px">
+	</div>
+	<div class="col-sm-4">
+<img class="img-rounded"src="img1.jpg"title="New Hostels"height="500px"width="500px">
+	</div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-offset-3 col-md-3">
+<p style=" text-align:left; font-size:15px"> <b>ANY HALLS COMPLAINS?</b></p>			
+<form name="CommentForm" action="/welcome"  method="post" enctype="form-data"
+onsubmit="return VALIDATE()">
+	<label for="myComment"></label>
+<textarea style="text-align:left; text-size:15px;" rows="5" cols="50" name="comment" 
+	placeholder="Comment Here"></textarea>
+<input type="hidden" name="name" th:value="${details.name}">
+<input type="hidden" name="regno" th:value="${details.regno}">
+<input type="hidden" name="hostel" th:value="${details.hostel}">
+<input type="hidden" name="block" th:value="${details.block}">
+<input type="hidden" name="room" th:value="${details.room}">
+<button type="submit"  onclick="myfunction()" class="btn btn-default">Submit</button>
+		</form>
+</div>
+</div>
+
+
+<div class="container">
+	<div class="footer" style="background-color:blue;color:yellow">
+		<hr>
+		<p style="margin-left:20px">Email:hallscomplains@egerton.ac.ke<br>
+			
+		</p>
+	</div>
+</div>
+
+</body>
+
+
+</html>

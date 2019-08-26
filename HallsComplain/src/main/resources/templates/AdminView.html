@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Welcome</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+
+<script type="text/javascript">
+function accept(){
+    window.alert("Complain sent to custodian");
+	 }
+	 
+function reject(){
+    window.alert("Complain not sent");
+	 }
+</script>
+</head>
+<body class="bg-danger" >
+
+<div class="row">
+
+<div class="col-md-offset-3 col-md-3">
+<h1>Here are the complains for </h1>
+<p th:text="${complain.name}"></p> 
+<p th:text="${complain.regno}"></p> 
+<p th:text="${complain.hostel}"></p> 
+<p th:text="${complain.block}"></p> 
+<p th:text="${complain.room}"></p> 
+<p th:text="${complain.comment}"></p> 
+
+
+<form name="myForm" action="/validate"  method="post" enctype="form-data">
+
+<input type="hidden" name="name" th:value="${complain.name}">
+<input type="hidden" name="regno" th:value="${complain.regno}">
+<input type="hidden" name="hostel" th:value="${complain.hostel}">
+<input type="hidden" name="block" th:value="${complain.block}">
+<input type="hidden" name="room" th:value="${complain.room}">
+<input type="hidden" name="comment" th:value="${complain.comment}">
+<button type="submit" class="btn btn-default">Accept Complain</button>
+		</form>
+		<form name="myForm" action="/delete"  method="post" enctype="form-data">
+
+<input type="hidden" name="regno" th:value="${complain.regno}">
+
+<button type="submit" class="btn btn-default">Reject complain</button>
+		</form>
+		<div class="lead" th:text="${message}">
+		</div>
+</div>
+</div>
+
+
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
+</html>

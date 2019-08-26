@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Welcome</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+
+<body class="bg-danger" >
+<div class="col-md-offset-4 col-md-5">
+<h1> Here are the Halls Complains</h1>
+<a href="/getComplains">View Complains</a>
+<table cellspacing="50">
+<tr>
+<th>NAME</th>
+<th>REGNO</th>
+<th>HOSTEL</th>
+</tr>
+<tr th:each="complain:${myList}">
+<td th:text="${complain.name}"></td>
+<td th:text="${complain.regno}"></td>
+<td th:text="${complain.hostel}"></td>
+<td><a th:href="@{/seeAll(regno=${complain.regno})}">See all</a></td>
+</tr>
+</table>
+
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>
